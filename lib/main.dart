@@ -1,12 +1,14 @@
 import 'package:di/di.dart';
 import 'package:flutter/material.dart';
 
+import 'core/di/injector.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/app_routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   DI.registerDependencies();
+  registerDependencies(diInjector);
   runApp(const MyApp());
 }
 

@@ -8,7 +8,7 @@ class MetricsEntity {
   final String company;
   final String picture;
   final String buyer;
-  final String registered;
+  final DateTime registered;
   final List<String> tags;
 
   const MetricsEntity({

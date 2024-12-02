@@ -29,7 +29,7 @@ class MetricsModel {
       company: json['company'],
       picture: json['picture'],
       buyer: json['buyer'],
-      tags: json['tags'],
+      tags: List<String>.from(json['tags'] ?? []),
       registered: json['registered'],
       orderStatus: json['status'],
     );

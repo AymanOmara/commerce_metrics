@@ -13,6 +13,6 @@ extension MetricsMapper on MetricsModel? {
         picture: this?.picture ?? "",
         buyer: this?.buyer ?? "",
         tags: this?.tags ?? [],
-        registered: this?.registered ?? "",
+        registered: DateTime.tryParse(this?.registered ?? "") ?? DateTime.now(),
       );
 }
