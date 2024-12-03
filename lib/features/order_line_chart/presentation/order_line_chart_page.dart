@@ -1,3 +1,4 @@
+import 'package:commerce_metrics/core/ui/commerce_container.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -15,51 +16,62 @@ class OrderLineChartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     List<FlSpot> graphData = chartDisplay.generateGraphData();
     return Scaffold(
-      body: SizedBox(
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.height * 0.5,
-              child: LineChart(
-                LineChartData(
-                  gridData: const FlGridData(
-                    show: true,
-                  ),
-                  titlesData: _flTitlesData(),
-                  borderData: FlBorderData(
-                    show: true,
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 1,
-                    ),
-                  ),
-                  minX: 0,
-                  maxX: graphData.length.toDouble() - 1,
-                  minY: 0,
-                  maxY: graphData.isNotEmpty
-                      ? graphData
-                          .map((spot) => spot.y)
-                          .reduce((a, b) => a > b ? a : b)
-                      : 1,
-                  lineBarsData: [
-                    LineChartBarData(
-                      spots: graphData,
-                      isCurved: true,
-                      barWidth: 4,
-                      belowBarData: BarAreaData(
-                        show: true,
-                        color: Colors.blue.withOpacity(0.3),
-                      ),
-                    ),
-                  ],
+      body: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios,
                 ),
               ),
-            ),
-          ],
+              CommerceContainer(
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  child: LineChart(
+                    LineChartData(
+                      gridData: const FlGridData(
+                        show: true,
+                      ),
+                      titlesData: _flTitlesData(),
+                      borderData: FlBorderData(
+                        show: true,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 1,
+                        ),
+                      ),
+                      minX: 0,
+                      maxX: graphData.length.toDouble() - 1,
+                      minY: 0,
+                      maxY: graphData.isNotEmpty
+                          ? graphData
+                          .map((spot) => spot.y)
+                          .reduce((a, b) => a > b ? a : b)
+                          : 1,
+                      lineBarsData: [
+                        LineChartBarData(
+                          spots: graphData,
+                          isCurved: true,
+                          barWidth: 4,
+                          belowBarData: BarAreaData(
+                            show: true,
+                            color: Colors.blue.withOpacity(0.3),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
