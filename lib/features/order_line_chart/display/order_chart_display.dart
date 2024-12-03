@@ -17,15 +17,11 @@ class OrderChartDisplay {
   }
 
   List<FlSpot> generateGraphData() {
-    final orderMap = orderCountMap();
-    List<FlSpot> spots = [];
-    int x = 0;
-
-    orderMap.forEach((yearMonth, count) {
-      spots.add(FlSpot(x.toDouble(), count.toDouble()));
-      x++;
-    });
-
-    return spots;
+    return orderCountMap().values
+        .toList()
+        .asMap()
+        .entries
+        .map((entry) => FlSpot(entry.key.toDouble(), entry.value.toDouble()))
+        .toList();
   }
 }
