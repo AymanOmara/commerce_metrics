@@ -22,7 +22,7 @@ Before running the app, ensure you have the following installed:
 1. **Clone the Repository**  
    Clone this repository to your local machine using:
    ```bash
-   git clone https://github.com/yourusername/commerce_metrics.git
+   git clone https://github.com/AymanOmara/commerce_metrics
    ```
     ```bash
       cd commerce_metrics
