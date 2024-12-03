@@ -8,7 +8,9 @@ class OrderChartDisplay {
 
   Map<String, int> orderCountMap() {
     Map<String, int> map = {};
-    for (var metric in _metrics) {
+    final sortedMetrics = List<MetricsEntity>.from(_metrics)
+      ..sort((a, b) => a.registered.compareTo(b.registered));
+    for (var metric in sortedMetrics) {
       String yearMonth =
           '${metric.registered.year}-${metric.registered.month.toString().padLeft(2, '0')}';
       map[yearMonth] = (map[yearMonth] ?? 0) + 1;
