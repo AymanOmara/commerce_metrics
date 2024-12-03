@@ -6,6 +6,6 @@ import 'package:get_it/get_it.dart';
 
 void setupRepositoryInjector(GetIt diInjector) {
   /// ********* Metrics **********
-  diInjector.registerFactory<JsonDataSource>(() => AssetJsonDataSource());
-  diInjector.registerFactory<IMetricsRepository>(() => MetricsRepository(diInjector()));
+  diInjector.registerSingleton<JsonDataSource>(AssetJsonDataSource());
+  diInjector.registerSingleton<IMetricsRepository>(MetricsRepository(diInjector()));
 }
