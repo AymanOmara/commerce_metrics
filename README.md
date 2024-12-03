@@ -1,16 +1,32 @@
-# commerce_metrics
+# Commerce Metrics
 
-A new Flutter project.
+A Flutter application to display insights from an orders dataset. The app includes:
+1. A screen displaying numeric metrics (total orders, average price, number of returns).
+2. A graph showing the number of orders (Y-axis) over time (X-axis).
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- User-friendly and professional design inspired by leading FinTech apps.
+- Cross-platform support: Android, iOS, and Web.
+- Insights derived from a JSON dataset.
 
-A few resources to get you started if this is your first Flutter project:
+## Prerequisites
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Before running the app, ensure you have the following installed:
+1. [Flutter SDK](https://docs.flutter.dev/get-started/install) (version 3.0 or later is recommended).
+2. Dart (bundled with Flutter SDK).
+3. A code editor like [Android Studio](https://developer.android.com/studio) or [VS Code](https://code.visualstudio.com/) with Flutter and Dart plugins installed.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+1. **Clone the Repository**  
+   Clone this repository to your local machine using:
+   ```bash
+   git clone https://github.com/yourusername/commerce_metrics.git
+   ```
+    ```bash
+      cd commerce_metrics
+   ```
+```bash
+   flutter pub get
+   ```
