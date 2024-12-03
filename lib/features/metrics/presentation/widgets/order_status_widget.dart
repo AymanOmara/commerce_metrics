@@ -1,4 +1,4 @@
-import 'package:commerce_metrics/core/ui/theme/colors.dart';
+import 'package:commerce_metrics/core/ui/commerce_container.dart';
 import 'package:domain/features/metrics/entity/orders_insight_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:gif/gif.dart';
@@ -13,18 +13,7 @@ class OrderStatusWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(30),
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
-        boxShadow: [
-          BoxShadow(color: mutedGray, blurRadius: 6),
-        ],
-        borderRadius: const BorderRadius.all(
-          Radius.circular(6),
-        ),
-      ),
+    return CommerceContainer(
       child: Column(
         children: [
           Row(
