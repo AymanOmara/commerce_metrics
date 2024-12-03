@@ -29,44 +29,7 @@ class OrderLineChartPage extends StatelessWidget {
                   gridData: const FlGridData(
                     show: true,
                   ),
-                  titlesData: FlTitlesData(
-                    leftTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        interval: 1,
-                        showTitles: true,
-                        reservedSize: 30,
-                        getTitlesWidget: (value, meta) {
-                          return Text(
-                            value.toInt().toString(),
-                          );
-                        },
-                      ),
-                    ),
-                    bottomTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        interval: 1,
-                        getTitlesWidget: (value, meta) {
-                          int index = value.toInt();
-                          if (index <
-                              chartDisplay.orderCountMap().keys.length) {
-                            String yearMonth = chartDisplay
-                                .orderCountMap()
-                                .keys
-                                .elementAt(index)
-                                .replaceAll("20", "");
-                            return Text(
-                              yearMonth,
-                              style: const TextStyle(
-                                fontSize: 10,
-                              ),
-                            );
-                          }
-                          return const SizedBox();
-                        },
-                      ),
-                    ),
-                  ),
+                  titlesData: _flTitlesData(),
                   borderData: FlBorderData(
                     show: true,
                     border: Border.all(
@@ -97,6 +60,46 @@ class OrderLineChartPage extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  FlTitlesData _flTitlesData() {
+    return FlTitlesData(
+      leftTitles: AxisTitles(
+        sideTitles: SideTitles(
+          interval: 1,
+          showTitles: true,
+          reservedSize: 30,
+          getTitlesWidget: (value, meta) {
+            return Text(
+              value.toInt().toString(),
+            );
+          },
+        ),
+      ),
+      bottomTitles: AxisTitles(
+        sideTitles: SideTitles(
+          showTitles: true,
+          interval: 1,
+          getTitlesWidget: (value, meta) {
+            int index = value.toInt();
+            if (index < chartDisplay.orderCountMap().keys.length) {
+              String yearMonth = chartDisplay
+                  .orderCountMap()
+                  .keys
+                  .elementAt(index)
+                  .replaceAll("20", "");
+              return Text(
+                yearMonth,
+                style: const TextStyle(
+                  fontSize: 10,
+                ),
+              );
+            }
+            return const SizedBox();
+          },
         ),
       ),
     );

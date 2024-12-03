@@ -17,7 +17,8 @@ class OrderChartDisplay {
   }
 
   List<FlSpot> generateGraphData() {
-    return orderCountMap().values
+    return orderCountMap()
+        .values
         .toList()
         .asMap()
         .entries

@@ -39,8 +39,8 @@ class MetricsPage extends StatelessWidget {
                           arguments: OrderChartDisplay(cubit.metrics),
                         );
                       },
-                      child: const Text("go next"),
-                    )
+                      child: const Text("Graph Screen"),
+                    ),
                   ],
                 ),
               ),

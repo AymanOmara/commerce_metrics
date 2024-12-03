@@ -28,7 +28,7 @@ class MetricsCubit extends Cubit<MetricsState> {
             metrics = data;
             metricsLoading = LoadingSuccess();
             emit(MetricsLoadingChangedState());
-            // myNameDrawer();
+            myNameDrawer();
           });
         case Failure(exception: final exception):
           metricsLoading = LoadingException(exception);
@@ -47,7 +47,7 @@ class MetricsCubit extends Cubit<MetricsState> {
         presentedName = "";
         lastSelectedCharIndex = 0;
       }
-      emit(MetricsLoadingChangedState());
+      emit(MetricsPresentedNameChangedState());
     });
   }
 }

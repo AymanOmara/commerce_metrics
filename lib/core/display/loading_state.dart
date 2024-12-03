@@ -8,9 +8,7 @@ class Loading extends LoadingState {
 
 class Idle extends LoadingState {}
 
-class LoadingSuccess<T> extends LoadingState {
-  T? data;
-
+class LoadingSuccess extends LoadingState {
   LoadingSuccess();
 }
 

@@ -16,7 +16,7 @@ class LoadingWidget extends StatelessWidget {
     return switch (loadingState) {
       Loading() => _baseWidget(const CircularProgressIndicator()),
       Idle() => const SizedBox(),
-      LoadingSuccess(data: final data) => _baseWidget(successWidget),
+      LoadingSuccess() => _baseWidget(successWidget),
       LoadingException(exception: final exception) =>
         _baseWidget(Text(exception.message)),
     };
