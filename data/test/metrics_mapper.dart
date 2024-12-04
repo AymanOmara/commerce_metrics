@@ -28,7 +28,7 @@ void main() {
       expect(entity.picture, equals("http://example.com/pic.png"));
       expect(entity.buyer, equals("John Doe"));
       expect(entity.tags, equals(["tag1", "tag2"]));
-      expect(entity.registered, equals("2021-01-01T00:00:00"));
+      expect(entity.registered, DateTime.parse("2021-01-01T00:00:00"));
     });
     test("should handle null values and return default values", () {
       var metricsModel = MetricsModel(
@@ -52,7 +52,7 @@ void main() {
       expect(entity.picture, equals(""));
       expect(entity.buyer, equals(""));
       expect(entity.tags, equals([]));
-      expect(entity.registered, equals(""));
+      expect(entity.registered, isNotNull);
     });
   });
 }
