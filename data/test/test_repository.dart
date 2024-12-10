@@ -19,34 +19,22 @@ void main() {
       mockJsonDataSource = SuccessMockJsonDataSource();
       repository = MetricsRepository(mockJsonDataSource);
       final result = await repository.getMetrics();
-      switch (result) {
-        case Success(data: final data):
-          expect(data, isA<List<MetricsEntity>>());
-        case Failure(exception: final exception):
-      }
+      expect(result.asSuccess(), isA<List<MetricsEntity>>());
     });
     test('should success handle nulls', () async {
       mockJsonDataSource = NullDataMockJsonDataSource();
       repository = MetricsRepository(mockJsonDataSource);
       final result = await repository.getMetrics();
-      switch (result) {
-        case Success(data: final data):
-          expect(data, isA<List<MetricsEntity>>());
-          expect(data.first.id, "");
-          expect(data.first.orderStatus, OrderStatus.unDefined);
-        case Failure(exception: final exception):
-      }
+      final data = result.asSuccess();
+      expect(data, isA<List<MetricsEntity>>());
+      expect(data?.first.id, "");
+      expect(data?.first.orderStatus, OrderStatus.unDefined);
     });
     test('should return general error when JSON is not valid', () async {
       mockJsonDataSource = UnCorrectJsonDataMockJson();
       repository = MetricsRepository(mockJsonDataSource);
       final result = await repository.getMetrics();
-      switch (result) {
-        case Success(data: final data):
-          break;
-        case Failure(exception: final exception):
-          expect(exception, isA<GeneralException>());
-      }
+      expect(result.asFailure(), isA<GeneralException>());
     });
   });
 }

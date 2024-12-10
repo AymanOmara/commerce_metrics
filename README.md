@@ -30,3 +30,7 @@ Before running the app, ensure you have the following installed:
 ```bash
    flutter pub get
    ```
+# run unit test coverage
+```bash
+./run_coverage.sh
+```
