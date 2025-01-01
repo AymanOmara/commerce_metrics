@@ -34,3 +34,7 @@ Before running the app, ensure you have the following installed:
 ```bash
 ./run_coverage.sh
 ```
+# create package
+```bash
+flutter create --template=package data
+```
